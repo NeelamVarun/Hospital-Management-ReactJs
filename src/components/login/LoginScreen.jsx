@@ -37,7 +37,7 @@ function LoginScreen({ onLogin }){
     return (
         <div className="login-container">
             <h2 style={{ textAlign: 'center', marginBotton: 24}}>Hospital Management Login</h2>
-            <form onSubmit={hadleLogin}>
+            <form onSubmit={handleLogin}>
                 <div style={{marginBottom: 16}}>
                     <label htmlFor="userName">UserName</label>
                     <input
@@ -63,7 +63,7 @@ function LoginScreen({ onLogin }){
                     />
                     </div>
                     {error && <div styke={{ color: 'red', marginBottom:12}}>{error}</div>}
-                    <button type="submit" style={{width: '100%', padding: 10, background: '#2d3a4b', color: #fff, border: 'none', borderRadius: 4, fontWeight: 'bold'}} disabled={loading}>
+                    <button type="submit" style={{width: '100%', padding: 10, background: '#2d3a4b', color: '#fff', border: 'none', borderRadius: 4, fontWeight: 'bold'}} disabled={loading}>
                         {loading ? 'Loggin in...' : 'Login'}
                         </button>
                         </form>
