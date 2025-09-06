@@ -1,0 +1,31 @@
+.login-container{
+    max-width: 350px;
+    margin:80px auto;
+    padding: 24px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px #0001;
+}
+
+.login-container h2{
+    text-align:center;
+    margin-bottom: 24px;
+}
+
+.form-group{
+    margin-bottom: 16px;
+}
+
+.form-group label{
+    display: block;
+    margin-bottom: 4px;
+    color:#2d3a4b;
+}
+.form-group input[type="text"],
+.form-group input[type="password"]{
+    width:100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top:4px;
+}
