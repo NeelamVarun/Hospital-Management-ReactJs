@@ -40,7 +40,8 @@ const DonorRegisterDetails: React.FC<{ onSubmit: (data: any) => void }> = ({ onS
       });
 
       if (response.ok) {
-        setSuccess('Registration successful!');
+         const data = await response.json();
+        setSuccess(data.message || 'Registration successful!');
         onSubmit(form);
       } else {
         const data = await response.json();
