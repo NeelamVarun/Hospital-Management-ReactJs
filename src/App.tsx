@@ -1,25 +1,43 @@
-import { useState } from 'react';
+import React from 'react';
 import './App.css';
-import LoginScreen from './components/login/LoginScreen';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+import DonorLogin from './login/DonorLogin';  
+import HospitalLogin from './login/HospitalAdminLogin';
+import DonorRegister from './register/DonorRegister';
+import HospitalAdminRegister from './register/HospitalAdminRegister';
+import DonorDashboard from './dashboard/DonorDashboard';
+import HospitalDashboard from './dashboard/HospitalAdminDashboard';
+import AppHeader from './components/AppHeader';
+
+import { useState } from 'react';
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [user, setUser] = useState<string | null>(null);
+  const [hideLinks, setHideLinks] = useState(false);
+  const handleNavClick = () => setHideLinks(true);
+  const hideHomeLinks = ['/donor-dashboard', '/hospital-dashboard', '/register', '/hospital-register'].includes(window.location.pathname);
 
-  const handleLogin = (userName: string) => {
-    setIsLoggedIn(true);
-    setUser(userName);
-  };
-
-  if (!isLoggedIn){
-    return <LoginScreen onLogin={handleLogin} />
-  }
   return (
-    <div style = {{ maxWidth: 600, margin: '40px auto', padding:32, background: '#FFF', borderRadius: 16, boxShadow: '0 4px 24px rgba(0,0,0,0.08)'}}>
-      <h1>Welcome, {user}</h1>
-      <p>This is your hospital management dashboard</p>
-    </div>
-    
+    <Router>
+      <AppHeader />
+      {!hideHomeLinks && !hideLinks && (
+        <div className="welcome-section">
+          <h2>Welcome</h2>
+          <nav className="welcome-nav">
+            <Link to="/donor-login" onClick={handleNavClick} className="welcome-link donor-link">Donor</Link>
+            <Link to="/hospital-login" onClick={handleNavClick} className="welcome-link hospital-link">Hospital Admin</Link>
+          </nav>
+        </div>
+      )}
+
+      <Routes>
+        <Route path="/donor-login" element={<DonorLogin />} />
+        <Route path="/hospital-login" element={<HospitalLogin />} />
+        <Route path="/register" element={<DonorRegister onSubmit={() => { }} />} />
+        <Route path="/hospital-register" element={<HospitalAdminRegister onSubmit={() => { }} />} />
+        <Route path="/donor-dashboard" element={<DonorDashboard />} />
+        <Route path="/hospital-dashboard" element={<HospitalDashboard />} />
+      </Routes>
+    </Router>
   );
 }
 

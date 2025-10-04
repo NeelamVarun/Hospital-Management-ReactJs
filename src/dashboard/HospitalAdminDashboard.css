@@ -1,0 +1,82 @@
+/* HospitalDashboard.css */
+
+.dashboard-filter-row {
+    margin-bottom: 16px;
+}
+
+.dashboard-filter-group {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+}
+
+.dashboard-filter-label {
+    font-weight: 500;
+    color: #333;
+    font-size: 1rem;
+}
+
+.dashboard-filter-select {
+    width: 90px;
+    padding: 2px 6px;
+    font-size: 1rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #fff;
+}
+
+.dashboard-container {
+    max-width: 800px;
+    margin: 32px auto;
+    background: #f9f9fa;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 32px;
+}
+
+.dashboard-container h2 {
+    color: #2c3e50;
+    margin-bottom: 16px;
+}
+/* HospitalDashboard.css continued */
+
+.dashboard-container h3 {
+    color: #34495e;
+    margin-top: 24px;
+    margin-bottom: 12px;
+}
+
+.dashboard-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 24px;
+}
+
+.dashboard-container th, .dashboard-container td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+.dashboard-container th {
+    background: #e9ecef;
+}
+
+.dashboard-container tr:nth-child(even) {
+    background: #f1f3f6;
+}
+
+.dashboard-container button {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 6px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.dashboard-container button:hover {
+    background: #0056b3;
+}
